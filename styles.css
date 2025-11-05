@@ -171,14 +171,13 @@ img {
 .hero {
     position: relative;
     min-height: 100vh;
-    width: 100%;
     display: flex;
     align-items: flex-start;
     justify-content: center;
     background: url('assets/backgrounds/front.png') left center/cover no-repeat;
     background-attachment: scroll;
     margin-top: 72px;
-    overflow-x: hidden;
+    overflow: hidden;
     animation: subtleZoom 20s ease-in-out infinite alternate;
 }
 
@@ -267,12 +266,14 @@ body[dir="rtl"] .hero-description {
     transition: transform 0.3s ease;
     width: auto;
     max-width: fit-content;
+    justify-content: flex-start;
 }
 
 body[dir="rtl"] .hero-block {
     flex-direction: row-reverse;
     margin-left: auto;
     margin-right: 0;
+    justify-content: flex-end;
 }
 
 body[dir="ltr"] .hero-block {
@@ -302,11 +303,14 @@ body[dir="rtl"] .hero-block:hover {
 .hero-block span {
     line-height: 1.6;
     display: inline-block;
-    text-align: left;
 }
 
 body[dir="rtl"] .hero-block span {
-    text-align: right;
+    text-align: right !important;
+}
+
+body[dir="ltr"] .hero-block span {
+    text-align: left;
 }
 
 /* Remove all shape styling */
@@ -1182,11 +1186,15 @@ body[dir="rtl"] .section-title i {
 
     .hero {
         margin-top: 64px;
-        justify-content: center;
-        min-height: 90vh;
-        padding: 40px 0;
-        background-position: center center;
-        background-size: cover;
+        justify-content: flex-start;
+        min-height: 100% !important;
+        height: auto !important;
+        padding: 60px 0 100px 0 !important;
+        background: url('assets/backgrounds/front.png') center center no-repeat !important;
+        background-size: 300% !important;
+        background-attachment: scroll !important;
+        overflow: visible !important;
+        animation: none !important;
     }
     
     .hero-content {
@@ -1195,7 +1203,6 @@ body[dir="rtl"] .section-title i {
         max-width: 100%;
         text-align: center;
         margin-top: 40px;
-        padding: 0 20px;
     }
     
     body[dir="rtl"] .hero {
@@ -1217,14 +1224,35 @@ body[dir="rtl"] .section-title i {
         grid-template-columns: 1fr;
         gap: 24px;
         margin-bottom: 30px;
+        justify-items: start;
+    }
+    
+    body[dir="rtl"] .hero-blocks {
+        justify-items: end;
     }
     
     .hero-block {
         font-size: 16px;
+        text-align: left !important;
+        width: 100%;
+        max-width: 100%;
+        justify-content: flex-start !important;
+    }
+    
+    body[dir="rtl"] .hero-block {
+        text-align: right !important;
+        flex-direction: row-reverse !important;
+        justify-content: flex-start !important;
+    }
+    
+    body[dir="rtl"] .hero-block span {
+        text-align: right !important;
+        width: 100%;
     }
     
     .hero-block i {
         font-size: 24px;
+        flex-shrink: 0 !important;
     }
 
     .hero-description {
@@ -1405,42 +1433,66 @@ body[dir="rtl"] .section-title i {
     }
     
     .hero {
-        min-height: 85vh;
-        padding: 30px 0;
-        background-position: center center;
-        background-size: cover;
+        min-height: 100% !important;
+        height: auto !important;
+        padding: 40px 0 100px 0 !important;
+        background: url('assets/backgrounds/front.png') center center no-repeat !important;
+        background-size: 250% !important;
+        background-attachment: scroll !important;
+        overflow: visible !important;
+        animation: none !important;
     }
     
     .hero-content {
         margin-top: 20px;
-        padding: 0 16px;
     }
     
     .hero-title {
-        font-size: 24px;
+        font-size: 32px;
         margin-bottom: 16px;
-        line-height: 1.3;
+        line-height: 1.2;
+        max-width: 100%;
+        width: 100%;
     }
     
-    .hero-description {
-        font-size: 14px;
-        padding: 16px 20px;
-        line-height: 1.6;
+    body[dir="rtl"] .hero-title {
+        max-width: 100%;
+        text-align: right;
     }
     
     .hero-blocks {
-        gap: 16px;
+        gap: 20px;
+        justify-items: start;
+    }
+    
+    body[dir="rtl"] .hero-blocks {
+        justify-items: end;
     }
     
     .hero-block {
-        font-size: 13px;
-        padding: 12px 16px;
+        font-size: 14px;
+        text-align: left !important;
+        width: 100%;
+        max-width: 100%;
+        justify-content: flex-start !important;
+    }
+    
+    body[dir="rtl"] .hero-block {
+        text-align: right !important;
+        flex-direction: row-reverse !important;
+        justify-content: flex-start !important;
+    }
+    
+    body[dir="rtl"] .hero-block span {
+        text-align: right !important;
+        width: 100%;
     }
     
     .hero-block i {
-        font-size: 18px;
-        width: 18px;
-        height: 18px;
+        font-size: 20px;
+        width: 20px;
+        height: 20px;
+        flex-shrink: 0 !important;
     }
 
     .section-title {
